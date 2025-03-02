@@ -55,8 +55,8 @@ export default function Payment() {
             { shippingAddress: values },
             {
                 headers: { token: localStorage.getItem("token") },
-                params: { url: window.location.origin }
-
+                params: { url: 'https://fresh-cart-three-sooty.vercel.app' }
+                
 
             }
         )
