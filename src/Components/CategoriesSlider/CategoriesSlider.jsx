@@ -34,7 +34,7 @@ function CenterMode() {
             {
                 breakpoint: 480, // Smallest screens
                 settings: {
-                    slidesToShow: 2, // تأكيد أن 2 يظهران في أصغر الشاشات
+                    slidesToShow: 2,
                 },
             },
         ],
@@ -62,15 +62,16 @@ function CenterMode() {
             <Slider {...settings}>
                 {data.data.data.map((category) => (
                     <Link key={category._id} to={`/categoryproducts/${category._id}`} className="p-2 block">
-                        <div className="p-2 flex justify-center">
-                            <img
-                                src={category.image}
-                                className="h-32 w-32 object-contain rounded-lg"
-                                alt={category.name}
-                            />
-                            <h6 className="text-center mt-2 font-semibold text-gray-700">{category.name}</h6>
-                        </div>
-                    </Link>
+                    <div className="p-2 flex flex-col items-center">
+                        <img
+                            src={category.image}
+                            className="h-32 w-32 object-contain rounded-lg"
+                            alt={category.name}
+                        />
+                        <h6 className="text-center mt-2 font-semibold text-gray-700">{category.name}</h6>
+                    </div>
+                </Link>
+                
                 ))}
             </Slider>
         </div>

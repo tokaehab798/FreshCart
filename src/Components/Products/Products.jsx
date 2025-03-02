@@ -53,7 +53,7 @@ export default function Products() {
     if (isError) {
         return <p>there is an error{error}</p>
     }
-    const filterProducts = data.data.data.filter(product => product.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    const filterProducts = data.data.data.filter(product=>product.title.toLowerCase().includes(searchQuery.toLowerCase()))
     return <>
         <section>
             <div className="container mx-auto">
@@ -67,75 +67,75 @@ export default function Products() {
                             </svg>
                         </div>
                         <input type="search"
-                            id="default-search"
-                            className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 focus:outline-none rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                            placeholder=" Search products..."
-                            required
-                            value={searchQuery}
-                            onChange={e => { setSearchQuery(e.target.value) }}
-                        />
-
+                         id="default-search"
+                          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 focus:outline-none rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                           placeholder=" Search products..." 
+                           required 
+                           value={searchQuery}
+                           onChange={e=>{setSearchQuery(e.target.value)}}
+                           />
+                        
                     </div>
                 </form>
 
 
 
                 <div className="row py-5">
-                    <div className="flex justify-center sm:px-4">
+                <div className="flex justify-center sm:px-4">
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 relative max-w-[400px] mx-auto px-2">
-                            {filterProducts.map((product) => (
-                                <div key={product._id} className="relative overflow-hidden group border shadow-sm rounded-lg bg-white transition-all duration-300 hover:shadow-md pb-6">
-                                    <div className="relative group">
-                                        <div
-                                            onClick={() => toggleWishlist(product._id)}
-                                            className={`cursor-pointer p-2 rounded absolute top-0 right-0 transition-all duration-300 ${wishList.some(item => item._id === product._id) ? 'text-red-500' : 'text-stone-400'
-                                                }`}
-                                        >
-                                            <i className={`fa-heart fa ${wishList.some(item => item._id === product._id) ? 'fa-solid' : 'fa-regular'
-                                                }`} />
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <Link to={`/productdetails/${product._id}`}>
-
-                                        <img src={product.imageCover} className="w-full h-48 object-contain p-2" alt={product.title} />
-                                        <div className="p-4">
-                                            <h6 className="text-green-600 text-sm font-semibold">{product.category.name}</h6>
-                                            <h2 className="text-gray-800 font-bold truncate">{product.title.split(' ').slice(0, 3).join(' ')}</h2>
-                                            <div className="flex justify-between items-center mt-2">
-                                                <p className="text-gray-600 text-sm">
-                                                    {product.priceAfterDiscount ? (
-                                                        <span className="text-red-600 line-through me-1">{product.price}EGP</span>
-                                                    ) : (
-                                                        <span>{product.price}</span>
-                                                    )}
-                                                    <span className="font-bold text-gray-900"> {product.priceAfterDiscount} EGP</span>
-                                                </p>
-                                                <p className="flex items-center text-yellow-500 font-semibold text-sm">
-                                                    {product.ratingsAverage} <i className="fa-solid fa-star ms-1"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </Link>
-
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 relative sm:max-w-[200px] md:max-w-full">
+                        {filterProducts.map((product) => (
+                            <div key={product._id} className="relative overflow-hidden group border shadow-sm rounded-lg bg-white transition-all duration-300 hover:shadow-md pb-6">
+                                <div className="relative group">
                                     <div
-                                        onClick={() => handleAddProductToCart(product._id)}
-                                        className="cursor-pointer absolute bg-green-600 bottom-1 left-0 right-0 mx-auto w-[90%] rounded-md h-9 translate-y-10 group-hover:translate-y-0 transition-all duration-500 text-white flex items-center justify-center"
+                                        onClick={() => toggleWishlist(product._id)}
+                                        className={`cursor-pointer p-2 rounded absolute top-0 right-0 transition-all duration-300 ${wishList.some(item => item._id === product._id) ? 'text-red-500' : 'text-stone-400'
+                                            }`}
                                     >
-                                        <div className="flex items-center">
-                                            <i className="fa-solid fa-plus me-2"></i>
-                                            <p>Add  to Cart</p>
-                                        </div>
+                                        <i className={`fa-heart fa ${wishList.some(item => item._id === product._id) ? 'fa-solid' : 'fa-regular'
+                                            }`} />
                                     </div>
+
+
 
                                 </div>
-                            ))}
-                        </div>
+
+                                <Link to={`/productdetails/${product._id}`}>
+
+                                    <img src={product.imageCover} className="w-full h-48 object-contain p-2" alt={product.title} />
+                                    <div className="p-4">
+                                        <h6 className="text-green-600 text-sm font-semibold">{product.category.name}</h6>
+                                        <h2 className="text-gray-800 font-bold truncate">{product.title.split(' ').slice(0, 3).join(' ')}</h2>
+                                        <div className="flex justify-between items-center mt-2">
+                                            <p className="text-gray-600 text-sm">
+                                                {product.priceAfterDiscount ? (
+                                                    <span className="text-red-600 line-through me-1">{product.price}EGP</span>
+                                                ) : (
+                                                    <span>{product.price}</span>
+                                                )}
+                                                <span className="font-bold text-gray-900"> {product.priceAfterDiscount} EGP</span>
+                                            </p>
+                                            <p className="flex items-center text-yellow-500 font-semibold text-sm">
+                                                {product.ratingsAverage} <i className="fa-solid fa-star ms-1"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Link>
+
+                                <div
+                                    onClick={() => handleAddProductToCart(product._id)}
+                                    className="cursor-pointer absolute bg-green-600 bottom-1 left-0 right-0 mx-auto w-[90%] rounded-md h-9 translate-y-10 group-hover:translate-y-0 transition-all duration-500 text-white flex items-center justify-center"
+                                >
+                                    <div className="flex items-center">
+                                        <i className="fa-solid fa-plus me-2"></i>
+                                        <p>Add  to Cart</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        ))}
                     </div>
+                </div>
                 </div>
             </div>
         </section>
