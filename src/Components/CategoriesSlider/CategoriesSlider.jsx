@@ -65,7 +65,7 @@ function CenterMode() {
                     <div className="p-2 flex flex-col items-center">
                         <img
                             src={category.image}
-                            className="h-32 w-full object-contain rounded-lg"
+                            className="h-32 w-full object-cover rounded-lg"
                             alt={category.name}
                         />
                         <h6 className="text-center mt-2 font-semibold text-gray-700">{category.name}</h6>
