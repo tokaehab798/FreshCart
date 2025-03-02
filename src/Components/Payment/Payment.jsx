@@ -55,7 +55,7 @@ export default function Payment() {
             { shippingAddress: values },
             {
                 headers: { token: localStorage.getItem("token") },
-                params: { url: 'http://localhost:3000' }
+                params: { url: 'https://your-project.vercel.app' }
 
             }
         )
