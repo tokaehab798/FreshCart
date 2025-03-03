@@ -83,8 +83,8 @@ export default function Products() {
                 <div className="row py-5">
                 <div className="flex justify-center sm:px-4">
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 relative sm:max-w-[200px] md:max-w-full">
-                        {filterProducts.map((product) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 relative max-w-[90%] sm:max-w-[200px] md:max-w-full mx-auto">
+                {filterProducts.map((product) => (
                             <div key={product._id} className="relative overflow-hidden group border shadow-sm rounded-lg bg-white transition-all duration-300 hover:shadow-md pb-6">
                                 <div className="relative group">
                                     <div
