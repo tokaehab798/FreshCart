@@ -64,7 +64,7 @@ export default function Home() {
                 <div className="row py-16">
                 <div className="flex justify-center sm:px-4">
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 relative sm:max-w-[600px] md:max-w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 relative max-w-[80%] sm:max-w-[180px] md:max-w-full mx-auto">
                         {data?.data?.data?.map((product) => (
                             <div key={product._id} className="relative overflow-hidden group border shadow-sm rounded-lg bg-white transition-all duration-300 hover:shadow-md pb-6">
                                 <div className="relative group">
